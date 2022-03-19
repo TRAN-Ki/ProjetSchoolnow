@@ -17,6 +17,20 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
         <style>a {text-decoration: none;} </style>
+        <style>
+
+            .divcenter {
+                margin-left: 113px;
+                margin-right: 113px;
+                width: 100px;
+            }
+            .divcentertext {
+                margin-left: 89px;
+                margin-right: 89px;
+                width: 150px;
+            }
+
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -46,24 +60,21 @@
                     <h2 class="mb-5">Qui es-tu ?</h2>
                 </div>
                 <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><i class="icon-people"></a></i></span>
-                        <h4><strong>Élève</strong></h4>
-                        <p class="text-faded mb-0">Looks great on any screen size!</p>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><i class="icon-people"></a></i></span></div>
+                        <h4 class="divcenter"><strong>Élève</strong></h4>
+                        <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant qu'élève</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-user"></i></span>
-                        <h4><strong>Professeur</strong></h4>
-                        <p class="text-faded mb-0">Freshly redesigned for Bootstrap 5.</p>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><i class="icon-user"></i></a></span></div>
+                        <h4 class="divcenter"><strong>Professeur</strong></h4>
+                        <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que professeur</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-user-following"></i></span>
-                        <h4><strong>Direction</strong></h4>
-                        <p class="text-faded mb-0">
-                            Millions of users
-                            <i class="fas fa-heart"></i>
-                            Start Bootstrap!
-                        </p>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
+
+                        <h4 class="divcenter"><strong>Direction</strong></h4>
+                        <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que membre de la direction</p>
                     </div>
                 </div>
             </div>
