@@ -47,6 +47,15 @@ class bloc_text
         $heur = $req->fetch();
         return $heur;
     }
+    public function afficherjour($j){
+        $bdd = new Bdd();
+        $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure ORDER BY heure_debut WHERE jour=:jour ');
+        $req->execute(array(
+            "jour"=> $j,
+        ));
+        $heur = $req->fetchAll();
+        return $heur;
+    }
 
 
     public function add(){

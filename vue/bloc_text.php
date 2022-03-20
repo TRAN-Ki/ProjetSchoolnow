@@ -1,8 +1,28 @@
 <?php
 require_once '../src/bdd/Bdd.php';
 require_once '../src/modele/bloc_text.php';
-$test=null;
-$testj=null;
+$test=0;
+$ltest=1;
+$arr=array();
+$arr[] =0;
+$arr[] =0;
+$arr[] =0;
+$arr[] =0;
+$mardi=0;
+$heure=null;
+session_start();
+$bdd = new Bdd();
+$req =$bdd->connexion()->prepare('SELECT * FROM bloc_heure ORDER BY heure_debut;');
+$req->execute(array());
+$res = $req->fetchAll();
+$arrF=array();
+$arrJ=array();
+$arrH=array();
+foreach ($res as $val) {
+    $arrF[] = $val["heure_fin"];
+    $arrJ[] = $val["jour"];
+    $arrH[] = $val["heure_debut"];
+}
 ?>
 <html>
 <head>
@@ -70,14 +90,19 @@ $testj=null;
             $valeur=null;
             unset($valeur);
             $valeur=$bloc->afficherheure($j,$jour[$i+1]);
-            if(isset($valeur['jour'])){
-                $test=$valeur["heure_fin"];
+            if(isset($valeur['id_bloc_heure'])){
+                $lenght=(str_replace(":30",".5",$valeur["heure_fin"])-$j)*2+1;
                 $testj=$valeur['jour'];
-                echo "<td rowspan='2'>a".$valeur['jour'].$test." ";
+                echo "<td rowspan=$lenght>a".$valeur["heure_fin"].sizeof($arrF).$lenght.$arr[$i]." ";
 
             }
 
-            elseif((string)$heure==$test && $jour[$i+1]==$testj){
+            elseif((double)$j<=(double)str_replace(":30",".5",$arrF[$test]) && $jour[$i+1]==$arrJ[$test] && (double)$j>=(double)str_replace(":30",".5",$arrH[$test])){
+                $ltest=$ltest+1;
+                if($test+1<sizeof($arrF) && $ltest==$lenght){
+                    $ltest=1;
+                    $test=$test+1;
+                }
 
             }
             else{

@@ -1,9 +1,34 @@
 <?php
 require_once '../src/bdd/Bdd.php';
 require_once '../src/modele/bloc_text.php';
+$test=0;
+
+$ltest=1;
+$bloc= new bloc_text(array());
+$mardi=0;
+$heure=null;
+$arrJ = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+$arrF=array("Lundi" => array("9") , "Mardi"=> array(), "Mercredi"=> array(), "Jeudi"=> array(), "Vendredi"=> array(), "Samedi"=> array(), "Dimanche"=> array());
+$arrH=array(array("Lundi"=> array("9","12") , "Mardi"=> array(), "Mercredi"=> array(), "Jeudi"=> array(), "Vendredi"=> array(), "Samedi"=> array(), "Dimanche"=> array()));
+for($k=0;$k<7;$k=$k+1)
+{
+    $res=$bloc->afficherjour($arrJ[$k]);
+    var_dump($arrJ[$k]);
+    var_dump($res);
+foreach ($res as $val) {
+    $arrH[$arrJ[$k]][] = $val["heure_debut"];
+    $arrF[$arrJ[$k]][] = $val["heure_fin"];
+}
+
+}
+
+
+
+
+
 
 ?>
-    <html>
+<html>
 <head>
     <title>bloc_text</title>
     <style type="text/css">
@@ -53,11 +78,19 @@ require_once '../src/modele/bloc_text.php';
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
     $rdv["Dimanche"]["16:30"]="CEJM";
     $rdv["Lundi"]["9"]= "Math";
+    foreach($arrH as $clef => $valeur){
+
+    foreach($valeur as $cef => $va){
+        echo $cef. ' a ' .$va[1]. ' ans<br>';
+    }
+    }
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
+    $key=0;
     for($j = 8; $j < 18; $j += 0.5) {
+        $key=$key+1;
         echo "<tr>";
         for($i = 0; $i < 7; $i++) {
             if($i == 0) {
@@ -65,11 +98,24 @@ require_once '../src/modele/bloc_text.php';
                 echo "<td class=\"time\">".$heure."</td>";
 
             }
-            $bloc= new bloc_text(array());
-            $valeur=$bloc->afficherheure("9","Lundi");
-            if(isset($valeur)){
-                $a=$i;
-                echo "<td>";
+
+            $valeur=null;
+            unset($valeur);
+            $valeur=$bloc->afficherheure($j,$jour[$i+1]);
+            if(isset($valeur['id_bloc_heure'])){
+                $lenght=(str_replace(":30",".5",$valeur["heure_fin"])-$j)*2+1;
+                $testj=$valeur['jour'];
+                echo "<td rowspan=$lenght>a".$arrH[$arrJ[$i]][0].sizeof($arrF).$lenght." ";
+
+            }
+
+            elseif((double)$j<=(double)str_replace(":30",".5",$arrF[$arrJ[$i]]) && $jour[$i+1]==$arrJ[$i]
+                && (double)$j>=(double)str_replace(":30",".5",$arrH[$arrJ[$i]])){
+                $ltest=$ltest+1;
+                if($test+1<sizeof($arrF) && $ltest==$lenght){
+                    $ltest=1;
+                    $test=$test+1;
+                }
 
             }
             else{
@@ -86,4 +132,3 @@ require_once '../src/modele/bloc_text.php';
     ?>
 </table>
 </body>
-
