@@ -49,11 +49,14 @@ class bloc_text
     }
     public function afficherjour($j){
         $bdd = new Bdd();
-        $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure ORDER BY heure_debut WHERE jour=:jour ');
+        $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure WHERE jour=:jour ORDER BY heure_debut ');
         $req->execute(array(
             "jour"=> $j,
+
         ));
+
         $heur = $req->fetchAll();
+
         return $heur;
     }
 
