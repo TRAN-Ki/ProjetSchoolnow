@@ -10,6 +10,12 @@ if (isset($_SESSION['email'])) {
 	<meta charset="utf-8">
 	<title>Connexion - SchoolNow</title>
     <style>
+        body {
+             background-color: #ECB807 !important;
+         }
+        .text-title{
+            color: #1D809F !important;
+        }
         .alert {
             padding: 20px;
             background-color: #f44336;
@@ -55,7 +61,7 @@ if (isset($_SESSION['erreur_co'])){
 
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Connexion | Élève</h1>
+							<h1 class="fs-4 card-title fw-bold mb-4 text-title">Connexion | Élève</h1>
 							<form action="../src/traitement/co_eleve.php" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Adresse mail</label>
