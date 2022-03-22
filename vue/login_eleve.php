@@ -56,7 +56,7 @@ if (isset($_SESSION['erreur_co'])){
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
 							<h1 class="fs-4 card-title fw-bold mb-4">Connexion | Élève</h1>
-							<form action="../src/traitement/connexion.php" method="POST" class="needs-validation" novalidate="" autocomplete="off">
+							<form action="../src/traitement/co_eleve.php" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Adresse mail</label>
 									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -88,7 +88,7 @@ if (isset($_SESSION['erreur_co'])){
 						</div>
 						<div class="card-footer py-3 border-0">
 							<div class="text-center">
-								Voulez-vous retourner à l'accueil ? <a href="../index.html" class="text-dark">Cliquez-ici.</a>
+								Voulez-vous retourner à l'accueil ? <a href="../index.php" class="text-dark">Cliquez-ici.</a>
 							</div>
 						</div>
 					</div>
