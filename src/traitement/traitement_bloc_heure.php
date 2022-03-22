@@ -1,4 +1,4 @@
 <?php
-require_once '../modele/bloc_text.php';
-$bloc= new bloc_text(array($_POST['heure_depart']));
+require_once '../modele/Bloc_heure.php';
+$bloc= new blocheure(array($_POST['heure_depart']));
 $bloc->afficherheure();

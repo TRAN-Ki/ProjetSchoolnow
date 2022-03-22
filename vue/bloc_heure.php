@@ -1,7 +1,7 @@
 <?php
 require_once '../src/bdd/Bdd.php';
-require_once '../src/modele/bloc_text.php';
-$bloc= new bloc_text(array());
+require_once '../src/modele/Bloc_heure.php';
+$bloc= new Bloc_heure(array());
 $heure=null;
 $arrJ = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
 $arrF=array("Lundi" => array() , "Mardi"=> array(), "Mercredi"=> array(), "Jeudi"=> array(), "Vendredi"=> array(), "Samedi"=> array(0), "Dimanche"=> array(0));

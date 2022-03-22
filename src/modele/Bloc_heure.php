@@ -1,6 +1,6 @@
 <?php
-require_once '../src/bdd/Bdd.php';
-class bloc_text
+require_once '../   src/bdd/Bdd.php';
+class Bloc_heure
 {
 
 
@@ -34,8 +34,8 @@ class bloc_text
     public function afficher($bdd){
         $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure');
         $req->execute(array());
-        $avion = $req->fetchAll();
-        return $avion;
+        $bheure = $req->fetchAll();
+        return $bheure;
     }
     public function afficherheure($h,$j){
         $bdd = new Bdd();
@@ -44,8 +44,8 @@ class bloc_text
             "heure_debut"=> $h,
             "jour"=> $j,
         ));
-        $heur = $req->fetch();
-        return $heur;
+        $heure = $req->fetch();
+        return $heure;
     }
     public function afficherjour($j){
         $bdd = new Bdd();
@@ -55,9 +55,9 @@ class bloc_text
 
         ));
 
-        $heur = $req->fetchAll();
+        $heure = $req->fetchAll();
 
-        return $heur;
+        return $heure;
     }
 
     public function afficherJoin(){
@@ -65,36 +65,9 @@ class bloc_text
         $req = $bdd->connexion()->prepare('SELECT * FROM `bloc_heure` JOIN `professeur` ON ref_professeur = id_professeur JOIN `matiere` ON ref_matiere = id_matiere');
         $req->execute(array());
 
-        $heur = $req->fetchAll();
+        $heure = $req->fetchAll();
 
-        return $heur;
-    }
-
-    public function add(){
-        $bdd = new Bdd();
-        $req = $bdd->connexion()->prepare('INSERT INTO bloc_heure (nom,capacite, fournisseur) VALUES (:nom, :capacite, :fournisseur);');
-        $req->execute(array(
-            "nom" => $_POST['nom'],
-            "capacite" => $_POST['capacite'],
-            "fournisseur" => $_POST['fournisseur'],
-
-        ));
-    }
-
-    public function modif(){
-        $bdd = new Bdd();        $req = $bdd->connexion()->prepare('UPDATE bloc_heure SET nom = :nom, capacite = :capacite, fournisseur = :fournisseur WHERE $id_bloc_heure = :$id_bloc_heure;');
-        $req->execute(array(
-            "id_bloc_heure" => $_SESSION['id_bloc_heure'],
-            "nom" => $_POST['nom'],
-            "capacite" => $_POST['capacite'],
-            "fournisseur" => $_POST['fournisseur'],
-        ));
-    }
-    public function delete(){
-        $bdd = new Bdd();        $req = $bdd->connexion()->prepare('DElETE FROM bloc_heure WHERE id_bloc_heure=:id_bloc_heure');
-        $req->execute(array(
-            "id_bloc_heure"=>$_POST['id_bloc_heure']
-        ));
+        return $heure;
     }
 
     /**

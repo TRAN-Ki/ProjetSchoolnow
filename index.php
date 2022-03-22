@@ -49,7 +49,7 @@
             <div class="container px-4 px-lg-5 text-center">
                 <h1 class="mb-1">SchoolNow</h1>
                 <h3 class="mb-5"><em>Toute la vie scolaire, en une seule plateforme.</em></h3>
-                <a class="btn btn-primary btn-xl" href="#about">Connecte-toi dès maintenant</a>
+                <a class="btn btn-primary btn-xl" href="#services">Connecte-toi dès maintenant</a>
             </div>
         </header>
         <!-- Services-->
@@ -71,8 +71,7 @@
                         <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que professeur</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
-                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
-
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php"><i class="icon-user-following"></i></a></span></div>
                         <h4 class="divcenter"><strong>Direction</strong></h4>
                         <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que membre de la direction</p>
                     </div>
@@ -99,7 +98,7 @@
                         <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
                     </li>
                 </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2021</p>
+                <p class="text-muted small mb-0">Copyright &copy; SchoolNow</p>
             </div>
         </footer>
         <!-- Scroll to Top Button-->

@@ -8,5 +8,5 @@ $insert = new Professeur(array(
     'MotDePasse'=>$_POST['mot_de_passe'],
 ));
 $insert->testProfesseur($database);
-header('Location: ../../vue/menu.php');//TODO: à changer
+header('Location: ../../vue/etudiant_vue.php');
 
