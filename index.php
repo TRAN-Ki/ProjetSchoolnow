@@ -20,13 +20,13 @@
         <style>
 
             .divcenter {
-                margin-left: 113px;
-                margin-right: 113px;
+                margin-left: 111px;
+                margin-right: 111px;
                 width: 100px;
             }
             .divcentertext {
-                margin-left: 89px;
-                margin-right: 89px;
+                margin-left: 88px;
+                margin-right: 88px;
                 width: 150px;
             }
 
@@ -38,9 +38,9 @@
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="#page-top"><strong>Connecte-toi</strong></a></li>
-                <li class="sidebar-nav-item"><a href="#page-top">Élève</a></li>
-                <li class="sidebar-nav-item"><a href="#services">Professeur</a></li>
-                <li class="sidebar-nav-item"><a href="#portfolio">Direction</a></li>
+                <li class="sidebar-nav-item"><a href="vue/login_eleve.php">Élève</a></li>
+                <li class="sidebar-nav-item"><a href="vue/login_professeur.php">Professeur</a></li>
+                <li class="sidebar-nav-item"><a href="vue/login_direction.php">Direction</a></li>
                 <li class="sidebar-nav-item"><a href="#contact">Signaler un problème</a></li>
             </ul>
         </nav>
@@ -61,17 +61,17 @@
                 </div>
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><i class="icon-people"></a></i></span></div>
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_eleve.php"><i class="icon-people"></a></i></span></div>
                         <h4 class="divcenter"><strong>Élève</strong></h4>
                         <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant qu'élève</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><i class="icon-user"></i></a></span></div>
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_professeur.php"><i class="icon-user"></i></a></span></div>
                         <h4 class="divcenter"><strong>Professeur</strong></h4>
                         <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que professeur</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
-                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="#page-top"><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
+                        <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
 
                         <h4 class="divcenter"><strong>Direction</strong></h4>
                         <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que membre de la direction</p>
