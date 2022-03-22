@@ -31,8 +31,8 @@ DROP TABLE IF EXISTS `bloc_heure`;
 CREATE TABLE IF NOT EXISTS `bloc_heure` (
   `id_bloc_heure` int NOT NULL AUTO_INCREMENT,
   `jour` varchar(50) NOT NULL,
-  `heure_debut` varchar(11) NOT NULL,
-  `heure_fin` varchar(11) NOT NULL,
+  `heure_debut` float(11) NOT NULL,
+  `heure_fin` float(11) NOT NULL,
   `ref_professeur` int NOT NULL,
   `ref_classe` int NOT NULL,
   `ref_matiere` int NOT NULL,

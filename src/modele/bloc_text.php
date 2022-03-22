@@ -60,6 +60,15 @@ class bloc_text
         return $heur;
     }
 
+    public function afficherJoin(){
+        $bdd = new Bdd();
+        $req = $bdd->connexion()->prepare('SELECT * FROM `bloc_heure` JOIN `professeur` ON ref_professeur = id_professeur JOIN `matiere` ON ref_matiere = id_matiere');
+        $req->execute(array());
+
+        $heur = $req->fetchAll();
+
+        return $heur;
+    }
 
     public function add(){
         $bdd = new Bdd();

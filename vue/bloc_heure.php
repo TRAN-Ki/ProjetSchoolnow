@@ -73,8 +73,13 @@ foreach ($res as $val) {
 <table>
     <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+
     $rdv["Dimanche"]["16:30"]="CEJM";
     $rdv["Lundi"]["9"]= "Math";
+    $join=$bloc->afficherJoin();
+    foreach ($join as $v){
+        $rdv[$v["jour"]][str_replace(":30",".5",$v["heure_debut"])]= $v["nom"]." ".$v["libelle"];
+    }
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
@@ -97,7 +102,7 @@ foreach ($res as $val) {
             if(isset($valeur['id_bloc_heure'])){
                 $jlenght[$i]=(str_replace(":30",".5",$valeur["heure_fin"])-$j)*2+1;
 
-                echo "<td rowspan=$jlenght[$i]>a".$arrF[$arrJ[$i]][$compteur[$i]].$arrH[$arrJ[$i]][$compteur[$i]].$jlenght[$i]." ";
+                echo "<td rowspan=$jlenght[$i]>";
 
             }
             elseif((double)$j<=(double)str_replace(":30",".5",$arrF[$arrJ[$i]][$compteur[$i]]) && $jour[$i+1]==$arrJ[$i]
