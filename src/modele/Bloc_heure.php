@@ -1,5 +1,4 @@
 <?php
-require_once '../   src/bdd/Bdd.php';
 class Bloc_heure
 {
 
@@ -37,8 +36,7 @@ class Bloc_heure
         $bheure = $req->fetchAll();
         return $bheure;
     }
-    public function afficherheure($h,$j){
-        $bdd = new Bdd();
+    public function afficherheure($bdd,$h,$j){
         $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure WHERE heure_debut=:heure_debut AND jour=:jour ');
         $req->execute(array(
             "heure_debut"=> $h,
@@ -47,8 +45,7 @@ class Bloc_heure
         $heure = $req->fetch();
         return $heure;
     }
-    public function afficherjour($j){
-        $bdd = new Bdd();
+    public function afficherjour($bdd,$j){
         $req = $bdd->connexion()->prepare('SELECT * FROM bloc_heure WHERE jour=:jour ORDER BY heure_debut ');
         $req->execute(array(
             "jour"=> $j,
@@ -60,8 +57,7 @@ class Bloc_heure
         return $heure;
     }
 
-    public function afficherJoin(){
-        $bdd = new Bdd();
+    public function afficherJoin($bdd){
         $req = $bdd->connexion()->prepare('SELECT * FROM `bloc_heure` JOIN `professeur` ON ref_professeur = id_professeur JOIN `matiere` ON ref_matiere = id_matiere');
         $req->execute(array());
 

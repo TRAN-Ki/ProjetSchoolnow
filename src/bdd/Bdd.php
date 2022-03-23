@@ -6,7 +6,7 @@ class Bdd
 
     public function __construct()
     {
-        $this->bdd = new PDO('mysql:host=localhost;dbname=ktn_vol;charset=utf8', 'root', '');
+        $this->bdd = new PDO('mysql:host=localhost;dbname=ktntbi_schoolnow;charset=utf8', 'root', '');
     }
 
     public function connexion()

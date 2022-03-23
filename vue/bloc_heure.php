@@ -3,6 +3,7 @@ require_once '../src/bdd/Bdd.php';
 require_once '../src/modele/Bloc_heure.php';
 $bloc= new Bloc_heure(array());
 $heure=null;
+$bdd = new Bdd();
 $arrJ = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
 $arrF=array("Lundi" => array() , "Mardi"=> array(), "Mercredi"=> array(), "Jeudi"=> array(), "Vendredi"=> array(), "Samedi"=> array(0), "Dimanche"=> array(0));
 $arrH=array("Lundi"=> array() , "Mardi"=> array(), "Mercredi"=> array(), "Jeudi"=> array(), "Vendredi"=> array(), "Samedi"=> array(0), "Dimanche"=> array(0));
@@ -11,7 +12,7 @@ $lcompteur = array(1,1,1,1,1,1,1);
 $jlenght = array(0,0,0,0,0,0,0);
 for($k=0;$k<7;$k=$k+1)
 {
-    $res=$bloc->afficherjour($arrJ[$k]);
+    $res=$bloc->afficherjour($bdd,$arrJ[$k]);
 foreach ($res as $val) {
     $arrH[$arrJ[$k]][] = $val["heure_debut"];
     $arrF[$arrJ[$k]][] = $val["heure_fin"];
@@ -76,7 +77,7 @@ foreach ($res as $val) {
 
     $rdv["Dimanche"]["16:30"]="CEJM";
     $rdv["Lundi"]["9"]= "Math";
-    $join=$bloc->afficherJoin();
+    $join=$bloc->afficherJoin($bdd);
     foreach ($join as $v){
         $rdv[$v["jour"]][str_replace(":30",".5",$v["heure_debut"])]= $v["nom"]." ".$v["libelle"];
     }
@@ -98,7 +99,7 @@ foreach ($res as $val) {
             }
             $valeur=null;
             unset($valeur);
-            $valeur=$bloc->afficherheure($j,$jour[$i+1]);
+            $valeur=$bloc->afficherheure($bdd,$j,$jour[$i+1]);
             if(isset($valeur['id_bloc_heure'])){
                 $jlenght[$i]=(str_replace(":30",".5",$valeur["heure_fin"])-$j)*2+1;
 
