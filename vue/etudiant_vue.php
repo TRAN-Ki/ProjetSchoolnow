@@ -50,7 +50,8 @@ require_once "../src/modele/Bloc_heure.php"
             margin-right: auto; /* Centre le tableau */
             border: 4px outset #1D809F; /* Bordure du tableau avec effet 3D (outset) */
             border-collapse: collapse; /* Colle les bordures entre elles */
-            width:30%;
+            table-layout: fixed;
+            width: 100%;
         }
         th /* Les cellules d'en-tête */
         {
