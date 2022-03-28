@@ -26,7 +26,7 @@ require_once "../src/modele/Bloc_heure.php"
         .divcenter {
             margin-left: 111px;
             margin-right: 111px;
-            width: 100px;
+            width: 450px;
         }
         .divcentertext {
             margin-left: 88px;
@@ -101,6 +101,16 @@ require_once "../src/modele/Bloc_heure.php"
                 $("#panel").slideToggle("slow");
             });
         });
+        $(document).ready(function(){
+            $("#flip1").click(function(){
+                $("#panel1").slideToggle("slow");
+            });
+        });
+        $(document).ready(function(){
+            $("#flip2").click(function(){
+                $("#panel2").slideToggle("slow");
+            });
+        });
     </script>
 </head>
 <body id="page-top">
@@ -134,23 +144,120 @@ require_once "../src/modele/Bloc_heure.php"
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
                 <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_eleve.php"><i class="icon-people"></a></i></span></div>
                 <h4 class="divcenter"><strong>Élève</strong></h4>
-                    <div id="flip"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gérer les élève</p></div>
-                    <div id="panel"><p class="text-faded divcentertext mb-0">Hello world!</p></div>
+                    <div id="flip"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux ajouter des élève</p></div>
+                    <div id="panel">
+                        <div class="container">
+                            <form method="post" action="../src/traitement/add_etudiant.php" class="m-auto" style="max-width:300px">
+                                <h3 class="my-4">Ajout</h3>
+                                <hr class="my-4" />
+                                <div class="form-group mb-3 row"><label for="nom" class="col-md-5 col-form-label">Nom</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="nom" name="nom" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="prenom" class="col-md-5 col-form-label">Prenom</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="prenom" name="prenom" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="rue" class="col-md-5 col-form-label">rue</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="rue" name="rue" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="cp" class="col-md-5 col-form-label">cp</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="cp" name="cp" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="ville" class="col-md-5 col-form-label">Ville</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="ville" name="ville" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="tel_etudiant" class="col-md-5 col-form-label">Telephone</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="tel_etudiant" name="tel_etudiant" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="tel_resp_legal" class="col-md-5 col-form-label">Telephone Parent</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="tel_resp_legal" name="tel_resp_legal" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="mot_de_passe" class="col-md-5 col-form-label">Mot de passe</label>
+                                    <div class="col-md-7"><input type="password" class="form-control form-control-lg" id="mot_de_passe" name="mot_de_passe" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="email" class="col-md-5 col-form-label">Email</label>
+                                    <div class="col-md-7"><input type="email" class="form-control form-control-lg" id="email" name="email" required></div>
+                                </div>
+                                <div class="form-group mb-3 row"><label for="ref_classe" class="col-md-5 col-form-label">Classe</label>
+                                    <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="ref_classe" name="ref_classe" required></div>
+                                </div>
+                                <hr class="my-4" />
+                                <div class="form-group mb-3 row"><label for="send-a-message6" class="col-md-5 col-form-label"></label>
+                                    <div class="col-md-7"><button class="btn btn-primary btn-lg" type="submit">Ajouter!</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
 
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
                 <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_professeur.php"><i class="icon-user"></i></a></span></div>
                 <h4 class="divcenter"><strong>Professeur</strong></h4>
-                <div id="flip"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gérer les élève</p></div>
-                <div id="panel"><p class="text-faded divcentertext mb-0">Hello world!</p></div>
+                <div id="flip1"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gérer les professeur</p></div>
+                <div id="panel1">
+                    <div class="container">
+                        <form method="post" action="../src/traitement/add_professeur.php" class="m-auto" style="max-width:300px">
+                            <h3 class="my-4">Ajout</h3>
+                            <hr class="my-4" />
+                            <div class="form-group mb-3 row"><label for="nom" class="col-md-5 col-form-label">Nom</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="nom" name="nom" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="prenom" class="col-md-5 col-form-label">Prenom</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="prenom" name="prenom" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="tel_portable" class="col-md-5 col-form-label">Telephone</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="tel_portable" name="tel_portable" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="mot_de_passe" class="col-md-5 col-form-label">Mot de passe</label>
+                                <div class="col-md-7"><input type="password" class="form-control form-control-lg" id="mot_de_passe" name="mot_de_passe" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="email" class="col-md-5 col-form-label">Email</label>
+                                <div class="col-md-7"><input type="email" class="form-control form-control-lg" id="email" name="email" required></div>
+                            </div>
+                            <hr class="my-4" />
+                            <div class="form-group mb-3 row"><label for="send-a-message6" class="col-md-5 col-form-label"></label>
+                                <div class="col-md-7"><button class="btn btn-primary btn-lg" type="submit">Ajouter!</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
                 <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
-
                 <h4 class="divcenter"><strong>Direction</strong></h4>
-                <div id="flip"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gérer les élève</p></div>
-                <div id="panel"><p class="text-faded divcentertext mb-0">Hello world!</p></div>
+                <div id="flip2"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gerer la direction</p></div>
+                <div id="panel2">
+                    <div class="container">
+                        <form method="post" action="../src/traitement/add_direction.php" class="m-auto" style="max-width:300px">
+                            <h3 class="my-4">Ajout</h3>
+                            <hr class="my-4" />
+                            <div class="form-group mb-3 row"><label for="role" class="col-md-5 col-form-label">Role</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="role" name="role" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="nom" class="col-md-5 col-form-label">Nom</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="nom" name="nom" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="prenom" class="col-md-5 col-form-label">Prenom</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="prenom" name="prenom" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="tel_portable" class="col-md-5 col-form-label">Telephone</label>
+                                <div class="col-md-7"><input type="text" class="form-control form-control-lg" id="tel_portable" name="tel_portable" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="mot_de_passe" class="col-md-5 col-form-label">Mot de passe</label>
+                                <div class="col-md-7"><input type="password" class="form-control form-control-lg" id="mot_de_passe" name="mot_de_passe" required></div>
+                            </div>
+                            <div class="form-group mb-3 row"><label for="email" class="col-md-5 col-form-label">Email</label>
+                                <div class="col-md-7"><input type="email" class="form-control form-control-lg" id="email" name="email" required></div>
+                            </div>
+                            <hr class="my-4" />
+                            <div class="form-group mb-3 row"><label for="send-a-message6" class="col-md-5 col-form-label"></label>
+                                <div class="col-md-7"><button class="btn btn-primary btn-lg" type="submit">Ajouter!</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

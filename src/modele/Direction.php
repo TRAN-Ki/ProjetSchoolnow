@@ -34,7 +34,7 @@ class Direction
             'prenom'=>$this->getPrenom(),
             'mot_de_passe'=>$this->getMotDePasse(),
             'email'=>$this->getEmail(),
-            'tel_portable'=>$this->getTelPortable(),
+            'tel_portable'=>$this->getTelPortable()
         ));
     }
 

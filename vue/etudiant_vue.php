@@ -139,11 +139,11 @@ for($k=0;$k<7;$k=$k+1)
     <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
 
-    $rdv["Dimanche"]["16:30"]="CEJM";
+    $rdv["Dimanche"]["16h30"]="CEJM";
     $rdv["Lundi"]["9"]= "Math";
     $join=$bloc->afficherJoin($bdd);
     foreach ($join as $v){
-        $rdv[$v["jour"]][str_replace(":30",".5",$v["heure_debut"])]= $v["nom"]." ".$v["libelle"];
+        $rdv[$v["jour"]][str_replace("h30",".5",$v["heure_debut"])]= $v["nom"]." ".$v["libelle"];
     }
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
@@ -157,7 +157,7 @@ for($k=0;$k<7;$k=$k+1)
         for($i = 0; $i < 7; $i++) {
 
             if($i == 0) {
-                $heure = str_replace(".5", ":30", $j);
+                $heure = str_replace(".5", "h30", $j);
                 echo "<td class=\"time\">".$heure."</td>";
 
             }
@@ -165,13 +165,13 @@ for($k=0;$k<7;$k=$k+1)
             unset($valeur);
             $valeur=$bloc->afficherheure($bdd,$j,$jour[$i+1]);
             if(isset($valeur['id_bloc_heure'])){
-                $jlenght[$i]=(str_replace(":30",".5",$valeur["heure_fin"])-$j)*2+1;
+                $jlenght[$i]=(str_replace("h30",".5",$valeur["heure_fin"])-$j)*2+1;
 
                 echo "<td rowspan=$jlenght[$i]>";
 
             }
-            elseif((double)$j<=(double)str_replace(":30",".5",$arrF[$arrJ[$i]][$compteur[$i]]) && $jour[$i+1]==$arrJ[$i]
-                && (double)$j>=(double)str_replace(":30",".5",$arrH[$arrJ[$i]][$compteur[$i]])){
+            elseif((double)$j<=(double)str_replace("h30",".5",$arrF[$arrJ[$i]][$compteur[$i]]) && $jour[$i+1]==$arrJ[$i]
+                && (double)$j>=(double)str_replace("h30",".5",$arrH[$arrJ[$i]][$compteur[$i]])){
                 $lcompteur[$i]=$lcompteur[$i]+1;
                 if($compteur[$i]+1<sizeof($arrF[$arrJ[$i]]) && $lcompteur[$i]==$jlenght[$i]){
                     $lcompteur[$i]=1;
