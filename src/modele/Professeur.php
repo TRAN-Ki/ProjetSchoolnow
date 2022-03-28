@@ -26,7 +26,7 @@ class Professeur
     }
 
     public function addProfesseur($bdd){
-        $req=$bdd->getBdd()->prepare('INSERT INTO professeur (nom, prenom, mot_de_passe, email, tel_portable) VALUES (:nom, :prenom, :mot_de_passe, :email, :tel_portable)');
+        $req=$bdd->connexion()->prepare('INSERT INTO professeur (nom, prenom, mot_de_passe, email, tel_portable) VALUES (:nom, :prenom, :mot_de_passe, :email, :tel_portable)');
         $req->execute(array(
             'nom'=>$this->getNom(),
             'prenom'=>$this->getPrenom(),
@@ -37,7 +37,7 @@ class Professeur
     }
 
     public function modifProfesseur($bdd){
-        $req = $bdd->getBdd()->prepare("UPDATE professeur SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`tel_portable`=:tel_portable WHERE id_professeur = :id_professeur");
+        $req = $bdd->connexion()->prepare("UPDATE professeur SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`tel_portable`=:tel_portable WHERE id_professeur = :id_professeur");
         $req->execute(array(
             'id_professeur'=>$this->getIdProfesseur(),
             'nom'=>$this->getNom(),
@@ -50,7 +50,7 @@ class Professeur
 
     public function testProfesseur($bdd){
         session_start();
-        $req = $bdd->getBdd()->prepare('SELECT * FROM professeur WHERE email = :email AND mot_de_passe = :mot_de_passe');
+        $req = $bdd->connexion()->prepare('SELECT * FROM professeur WHERE email = :email AND mot_de_passe = :mot_de_passe');
         $req->execute(array(
             'email'=>$this->getEmail(),
             'mot_de_passe'=>$this->getMotDePasse()
@@ -62,10 +62,10 @@ class Professeur
             $_SESSION['email'] = $res['email'];
             $_SESSION['id'] = $res['id_direction'];
 
-            header('Location: ../../vue/menu.php');//TODO: à changer redirection (sûrement partout)
+            header('Location: ../../vue/professeur_vue.php');
         }
         else{
-            header('Location: ../../vue/login.php');
+            header('Location: ../../vue/login_professeur.php');
             $_SESSION['erreur_co'] = "e";
         }
     }

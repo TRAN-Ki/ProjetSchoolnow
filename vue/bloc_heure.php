@@ -1,6 +1,7 @@
 <?php
 require_once '../src/bdd/Bdd.php';
 require_once '../src/modele/Bloc_heure.php';
+$bdd = new Bdd();
 $bloc= new Bloc_heure(array());
 $heure=null;
 $bdd = new Bdd();
@@ -26,9 +27,6 @@ foreach ($res as $val) {
 
 
 ?>
-<html>
-<head>
-    <title>bloc_text</title>
     <style type="text/css">
         caption /* Titre du tableau */
         {
@@ -69,8 +67,6 @@ foreach ($res as $val) {
         }
     </style>
 
-</head>
-<body>
 <table>
     <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
@@ -129,4 +125,3 @@ foreach ($res as $val) {
     }
     ?>
 </table>
-</body>

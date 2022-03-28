@@ -31,7 +31,7 @@ class Etudiant
     }
 
     public function addEtudiant($bdd){
-        $req=$bdd->getBdd()->prepare('INSERT INTO etudiant (nom, prenom, mot_de_passe, email, rue, cp, ville, tel_etudiant, tel_resp_legal, ref_classe) VALUES (:nom, :prenom, :mot_de_passe, :email, :rue, :cp, :ville, :tel_etudiant, :tel_resp_legal, :ref_classe)');
+        $req=$bdd->connexion()->prepare('INSERT INTO etudiant (nom, prenom, mot_de_passe, email, rue, cp, ville, tel_etudiant, tel_resp_legal, ref_classe) VALUES (:nom, :prenom, :mot_de_passe, :email, :rue, :cp, :ville, :tel_etudiant, :tel_resp_legal, :ref_classe)');
         $req->execute(array(
             'nom'=>$this->getNom(),
             'prenom'=>$this->getPrenom(),
@@ -47,7 +47,7 @@ class Etudiant
     }
 
     public function modifEtudiant($bdd){
-        $req = $bdd->getBdd()->prepare("UPDATE etudiant SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`rue`=:rue,`cp`=:cp,`ville`=:ville,`tel_etudiant`=:tel_etudiant,`tel_resp_legal`=:tel_resp_legal,`ref_classe`=:ref_classe WHERE id_etudiant = :id_etudiant");
+        $req = $bdd->connexion()->prepare("UPDATE etudiant SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`rue`=:rue,`cp`=:cp,`ville`=:ville,`tel_etudiant`=:tel_etudiant,`tel_resp_legal`=:tel_resp_legal,`ref_classe`=:ref_classe WHERE id_etudiant = :id_etudiant");
         $req->execute(array(
             'id_etudiant'=>$this->getIdEtudiant(),
             'nom'=>$this->getNom(),
@@ -64,8 +64,7 @@ class Etudiant
     }
 
     public function testEtudiant($bdd){
-        session_start();
-        $req = $bdd->getBdd()->prepare('SELECT * FROM etudiant WHERE email = :email AND mot_de_passe = :mot_de_passe');
+        $req = $bdd->connexion()->prepare('SELECT * FROM etudiant WHERE email = :email AND mot_de_passe = :mot_de_passe');
         $req->execute(array(
             'email'=>$this->getEmail(),
             'mot_de_passe'=>$this->getMotDePasse()
@@ -77,10 +76,10 @@ class Etudiant
             $_SESSION['email'] = $res['email'];
             $_SESSION['id'] = $res['id_etudiant'];
 
-            header('Location: ../../vue/menu.php');//TODO: à changer ici aussi
+            header('Location: ../../vue/etudiant_vue.php');
         }
         else{
-            header('Location: ../../vue/login.php');
+            header('Location: ../../vue/login_eleve.php');
             $_SESSION['erreur_co'] = "e";
         }
     }

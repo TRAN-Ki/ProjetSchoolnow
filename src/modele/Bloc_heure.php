@@ -66,6 +66,13 @@ class Bloc_heure
         return $heure;
     }
 
+    public function getAllEleveFromClasse($bdd){
+        $req = $bdd->connexion()->prepare('SELECT DISTINCT etudiant.nom, etudiant.prenom, etudiant.ref_classe FROM ((etudiant INNER JOIN classe ON etudiant.ref_classe = classe.id_classe) INNER JOIN bloc_heure ON classe.id_classe = bloc_heure.ref_classe) WHERE bloc_heure.ref_professeur = :ref_professeur');
+        $req->execute(array(
+            'ref_professeur'=>$this->getRefProfesseur()
+        ));
+    }
+
     /**
      * @return mixed
      */

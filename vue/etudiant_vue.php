@@ -102,34 +102,8 @@ require_once "../src/modele/Bloc_heure.php"
         <a class="btn btn-primary btn-xl" href="#about">Connecte-toi dès maintenant</a>
     </div>
 </header>
-<!-- Services-->
-<section class="content-section bg-primary text-white text-center" id="services">
-    <div class="container px-4 px-lg-5">
-        <div class="content-section-heading">
-            <h3 class="text-secondary mb-0">Connexion</h3>
-            <h2 class="mb-5">Qui es-tu ?</h2>
-        </div>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_eleve.php"><i class="icon-people"></a></i></span></div>
-                <h4 class="divcenter"><strong>Élève</strong></h4>
-                <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant qu'élève</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_professeur.php"><i class="icon-user"></i></a></span></div>
-                <h4 class="divcenter"><strong>Professeur</strong></h4>
-                <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que professeur</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
-
-                <h4 class="divcenter"><strong>Direction</strong></h4>
-                <p class="divcenter divcentertext text-faded mb-0">Connecte-toi ici en tant que membre de la direction</p>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Emploi du temps -->
+<br>
 <?php
 require_once '../src/bdd/Bdd.php';
 require_once '../src/modele/Bloc_heure.php';

@@ -27,7 +27,7 @@ class Direction
     }
 
     public function addDirection($bdd){
-        $req=$bdd->getBdd()->prepare('INSERT INTO direction (role, nom, prenom, mot_de_passe, email, tel_portable) VALUES (:role, :nom, :prenom, :mot_de_passe, :email, :tel_portable)');
+        $req=$bdd->connexion()->prepare('INSERT INTO direction (role, nom, prenom, mot_de_passe, email, tel_portable) VALUES (:role, :nom, :prenom, :mot_de_passe, :email, :tel_portable)');
         $req->execute(array(
             'role'=>$this->getRole(),
             'nom'=>$this->getNom(),
@@ -38,8 +38,8 @@ class Direction
         ));
     }
 
-    public function modifDirection($bdd){ //TODO: update "role"
-        $req = $bdd->getBdd()->prepare("UPDATE direction SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`tel_portable`=:tel_portable WHERE id_direction = :id_direction");
+    public function modifDirection($bdd){
+        $req = $bdd->connexion()->prepare("UPDATE direction SET `nom`=:nom,prenom=:prenom,`mot_de_passe`=:mot_de_passe,`email`=:email,`tel_portable`=:tel_portable WHERE id_direction = :id_direction");
         $req->execute(array(
             'id_direction'=>$this->getIdDirection(),
             'role'=>$this->getRole(),
@@ -53,7 +53,7 @@ class Direction
 
     public function testDirection($bdd){
         session_start();
-        $req = $bdd->getBdd()->prepare('SELECT * FROM direction WHERE email = :email AND mot_de_passe = :mot_de_passe');
+        $req = $bdd->connexion()->prepare('SELECT * FROM direction WHERE email = :email AND mot_de_passe = :mot_de_passe');
         $req->execute(array(
             'email'=>$this->getEmail(),
             'mot_de_passe'=>$this->getMotDePasse()
@@ -65,10 +65,10 @@ class Direction
             $_SESSION['email'] = $res['email'];
             $_SESSION['id'] = $res['id_direction'];
 
-            header('Location: ../../vue/menu.php');//TODO: à changer redirection (sûrement partout)
+            header('Location: ../../vue/direction_vue.php');
         }
         else{
-            header('Location: ../../vue/login.php');
+            header('Location: ../../vue/login_direction.php');
             $_SESSION['erreur_co'] = "e";
         }
     }
