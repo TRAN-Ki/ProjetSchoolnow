@@ -9,6 +9,12 @@ require_once "../src/modele/Bloc_heure.php"
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>SchoolNow</title>
+    <!-- Datatable-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -80,11 +86,12 @@ require_once "../src/modele/Bloc_heure.php"
             text-align: center;
         }
 
-        #panel {
+        #panel,#panel1,#panel2 {
             padding-top: 5px;
             padding-right: 5px;
-            padding-bottom: 250px;
+            padding-bottom: 5px;
             padding-left: 5px;
+            display: none;
         }
     </style>
     <!-- Jquery + script -->
@@ -140,11 +147,13 @@ require_once "../src/modele/Bloc_heure.php"
             <h3 class="text-secondary mb-0">Gestion</h3>
             <h2 class="mb-5">C'est ici que vous gerer l'ecole</h2>
         </div>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_eleve.php"><i class="icon-people"></a></i></span></div>
-                <h4 class="divcenter"><strong>Élève</strong></h4>
-                    <div id="flip"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux ajouter des élève</p></div>
+        <div style="display: flex; justify-content: space-around">
+            <div class="center">
+                <div class="center"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_eleve.php"><i class="icon-people"></a></i></span>
+
+                </div>
+                <h4 class="center"><strong>Élève</strong></h4>
+                    <div id="flip"><p style="cursor: pointer" class="center centertext  text-faded mb-0">Ici tu peux ajouter des élève</p></div>
                     <div id="panel">
                         <div class="container">
                             <form method="post" action="../src/traitement/add_etudiant.php" class="m-auto" style="max-width:300px">
@@ -187,13 +196,11 @@ require_once "../src/modele/Bloc_heure.php"
                             </form>
                         </div>
                     </div>
-
-
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_professeur.php"><i class="icon-user"></i></a></span></div>
-                <h4 class="divcenter"><strong>Professeur</strong></h4>
-                <div id="flip1"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gérer les professeur</p></div>
+            <div class="center">
+                <div class="center"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_professeur.php"><i class="icon-user"></i></a></span></div>
+                <h4 class="center"><strong>Professeur</strong></h4>
+                <div id="flip1"><p style="cursor: pointer" class="center centertext  text-faded mb-0">Ici tu peux gérer les professeur</p></div>
                 <div id="panel1">
                     <div class="container">
                         <form method="post" action="../src/traitement/add_professeur.php" class="m-auto" style="max-width:300px">
@@ -223,10 +230,10 @@ require_once "../src/modele/Bloc_heure.php"
                 </div>
 
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0 divcenter">
-                <div class="divcenter"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
-                <h4 class="divcenter"><strong>Direction</strong></h4>
-                <div id="flip2"><p class="divcenter divcentertext  text-faded mb-0">Ici tu peux gerer la direction</p></div>
+            <div class="center">
+                <div class="center"><span class="service-icon rounded-circle mx-auto mb-3"><a href="vue/login_direction.php  "><a href="#page-top"><i class="icon-user-following"></i></a></span></div>
+                <h4 class="center"><strong>Direction</strong></h4>
+                <div id="flip2"><p style="cursor: pointer" class="center centertext  text-faded mb-0">Ici tu peux gerer la direction</p></div>
                 <div id="panel2">
                     <div class="container">
                         <form method="post" action="../src/traitement/add_direction.php" class="m-auto" style="max-width:300px">
@@ -259,6 +266,7 @@ require_once "../src/modele/Bloc_heure.php"
                 </div>
 
             </div>
+        </div>
         </div>
     </div>
 

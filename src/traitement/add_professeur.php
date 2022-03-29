@@ -1,5 +1,5 @@
 <?php
-require_once "../modele/Direction.php";
+require_once "../modele/Professeur.php";
 require_once "../bdd/Bdd.php";
 $database = new Bdd();
 $insert = new Professeur(array(
